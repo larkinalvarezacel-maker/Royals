@@ -503,6 +503,52 @@ body.hide-cursor, body.hide-cursor * { cursor: none !important; }
 .btn-outline:hover { color: #000; border-color: #fff; }
 .btn-outline:hover::before { transform: translateY(0); }
 
+/* ROUND BUTTONS WITH ICONS */
+.btn-round {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-family: var(--tech);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    position: relative;
+    transition: transform .3s, background .3s, color .3s, border-color .3s;
+    border: 1px solid var(--line-2);
+    background: rgba(255,255,255,.03);
+    color: #fff;
+    will-change: transform;
+}
+.btn-round svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    transition: transform .3s var(--ease-out);
+}
+.btn-round:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+.btn-round:hover svg {
+    transform: scale(1.1);
+}
+.btn-round.discord:hover {
+    background: #5865F2;
+    border-color: #5865F2;
+    color: #fff;
+}
+.btn-round.facebook:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+    color: #fff;
+}
+
 .scroll-indicator {
     position: absolute;
     bottom: 40px;
@@ -1487,6 +1533,7 @@ footer {
     .hero-cta { flex-direction: column; width: 100%; max-width: 300px; }
     .hero-cta .btn { width: 100%; }
     .cta-buttons { flex-direction: column; }
+    .btn-round { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -1717,42 +1764,40 @@ footer {
             <div class="wom-left">
                 <div class="wom-tag">DECEMBER 2026</div>
                 <div class="wom-title">
-                    DR-H
-                    <small>ASSAULT RIFLE · HIGH RISK, HIGH REWARD</small>
+                    STATIC-HV
+                    <small>SMG · MOBILITY & FIRE RATE</small>
                 </div>
                 <p class="wom-desc">
-                    Slow rate of fire. Brutal per-shot damage. Two-taps across most ranges.
-                    The DR-H is a scalpel for players who land their shots and punish
-                    anyone who misses theirs.
+                    A relentless, fast-firing SMG. The Static-HV dominates close to mid-range with high mobility and rapid fire rates. Perfect for aggressive pushes and chaotic objective plays.
                 </p>
                 <div class="wom-attach">
-                    <span>MIP LIGHT BARREL</span>
-                    <span>NO STOCK</span>
-                    <span>28 ROUND OTM</span>
-                    <span>TACTICAL LASER</span>
-                    <span>GRANULATED GRIP</span>
+                    <span>XTEN BLACK KITE</span>
+                    <span>GARROTE-8 LONG BARREL</span>
+                    <span>SALVO 580 HEAVY STOCK</span>
+                    <span>ACCU-SHOT 5MW LASER</span>
+                    <span>BRUEN WARRIOR GRIP</span>
                 </div>
             </div>
             <div class="wom-right" id="womStats">
                 <div class="stat-row">
-                    <div class="stat-row-top"><span>DAMAGE</span><span>92</span></div>
-                    <div class="stat-bar" data-w="92"><span></span></div>
+                    <div class="stat-row-top"><span>DAMAGE</span><span>27</span></div>
+                    <div class="stat-bar" data-w="27"><span></span></div>
                 </div>
                 <div class="stat-row">
-                    <div class="stat-row-top"><span>RANGE</span><span>78</span></div>
-                    <div class="stat-bar" data-w="78"><span></span></div>
+                    <div class="stat-row-top"><span>RANGE</span><span>65</span></div>
+                    <div class="stat-bar" data-w="65"><span></span></div>
                 </div>
                 <div class="stat-row">
-                    <div class="stat-row-top"><span>ACCURACY</span><span>84</span></div>
+                    <div class="stat-row-top"><span>ACCURACY</span><span>49</span></div>
+                    <div class="stat-bar" data-w="49"><span></span></div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-row-top"><span>MOBILITY</span><span>84</span></div>
                     <div class="stat-bar" data-w="84"><span></span></div>
                 </div>
                 <div class="stat-row">
-                    <div class="stat-row-top"><span>MOBILITY</span><span>61</span></div>
-                    <div class="stat-bar" data-w="61"><span></span></div>
-                </div>
-                <div class="stat-row">
-                    <div class="stat-row-top"><span>CONTROL</span><span>70</span></div>
-                    <div class="stat-bar" data-w="70"><span></span></div>
+                    <div class="stat-row-top"><span>CONTROL</span><span>51</span></div>
+                    <div class="stat-bar" data-w="51"><span></span></div>
                 </div>
             </div>
         </div>
@@ -1935,7 +1980,7 @@ footer {
     <section class="sec" style="padding-top: 0; border-top: 0;">
         <div class="gallery reveal-up">
             <img src="banner.jpg" alt="Ɍoyals Emblem">
-            <img src="wordmark.jpg" alt="Ɍoyals Wordmark">
+            <img src="logo.jpg" alt="Ɍoyals Logo">
         </div>
     </section>
 
@@ -1946,8 +1991,18 @@ footer {
             <h2 class="cta-title reveal-up">WANT THE <span>CREST?</span></h2>
             <p class="cta-desc reveal-up">If you think you have what it takes to run with the <b>Ɍ</b>oyals — if you're ready to grind, improve, and never bow — submit your application.</p>
             <div class="cta-buttons reveal-up">
-                <a href="#join" class="btn btn-primary" data-magnet>JOIN DISCORD</a>
-                <a href="#join" class="btn btn-outline">APPLY IN-GAME</a>
+                <a href="https://discord.gg/aEyYeN6Z2" target="_blank" rel="noopener noreferrer" class="btn-round discord">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
+                    </svg>
+                    JOIN DISCORD
+                </a>
+                <a href="https://www.facebook.com/share/14wsJsBaNoi/" target="_blank" rel="noopener noreferrer" class="btn-round facebook">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    FACEBOOK PAGE
+                </a>
             </div>
         </div>
     </section>
@@ -1962,9 +2017,8 @@ footer {
     <div class="foot-bottom">
         <div>&copy; 2026 <b>Ɍ</b>OYALS COMMUNITY. ALL RIGHTS RESERVED.</div>
         <div class="foot-socials">
-            <a href="#">INSTAGRAM</a>
-            <a href="#">FACEBOOK</a>
-            <a href="#">DISCORD</a>
+            <a href="https://www.facebook.com/share/14wsJsBaNoi/" target="_blank" rel="noopener noreferrer">FACEBOOK</a>
+            <a href="https://discord.gg/aEyYeN6Z2" target="_blank" rel="noopener noreferrer">DISCORD</a>
         </div>
     </div>
 </footer>
